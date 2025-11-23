@@ -34,7 +34,7 @@ func (u *UserHandler) RegisterRouters(server *gin.Engine) {
 	ur.GET("/profile", u.Profile)
 }
 func (u *UserHandler) SignUp(ctx *gin.Context) {
-
+	// 使用josn 来绑定对应规则 中间用反射实现
 	type SignUpReq struct {
 		Email           string `json:"email"`
 		Password        string `json:"password"`
@@ -69,7 +69,7 @@ func (u *UserHandler) SignUp(ctx *gin.Context) {
 		ctx.String(http.StatusOK, "密码必须包含字母、数字、特殊字符，并且不少于八位")
 		return
 	}
-	ctx.String(http.StatusOK, "注册成功")
+	ctx.String(http.StatusOK, "sucd")
 
 }
 func (u *UserHandler) Login(ctx *gin.Context) {
